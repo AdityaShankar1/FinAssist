@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FinAssist Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>FinAssist Dashboard</h1>
+    <p>{{ dashboard.summary }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Main Investment Avenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in dashboard.rows %}
+            <tr>
+                <td>{{ row.Gender }}</td>
+                <td>{{ row.Age }}</td>
+                <td>{{ row['Main Avenue'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Explainability Analysis</h2>
+    <img src="{{ url_for('static', filename='Figure_1.png') }}" style="max-width:800px; width:100%; margin-bottom:20px;">
+    <img src="{{ url_for('static', filename='Figure_2.png') }}" style="max-width:800px; width:100%;">
+</body>
+</html>
